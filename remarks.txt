@@ -1,0 +1,8 @@
+Как вариант можно использовать более короткую версию с функцией max:
+
+
+import requests
+r = requests.get('https://www.cbr-xml-daily.ru/daily_json.js')
+
+data_dict = r.json()['Valute']
+max(data_dict.items(), key=lambda x: x[1]['Value'])[1]['Name']
